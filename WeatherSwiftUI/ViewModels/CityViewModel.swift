@@ -20,8 +20,9 @@ final class CityViewModel: ObservableObject {
     @Published var hourlyViewModels: [HourlyWeatherViewModel]
     @Published var dailyViewModels: [DailyDescriptionViewModel]
     @Published var weatherHeaderViewModel: WeatherHeaderViewModel
-//    @Published var location: Location
-   
+
+    
+    var location: Location = Location(city: "Tokyo", country: "Japan")
     
     init(lat: Double, lon: Double, hourlyViewModels: [HourlyWeatherViewModel] = [], dailyViewModels: [DailyDescriptionViewModel] = [], weatherHeaderViewModel: WeatherHeaderViewModel = .mock) {
         self.lat = lat
@@ -29,7 +30,6 @@ final class CityViewModel: ObservableObject {
         self.hourlyViewModels = hourlyViewModels
         self.dailyViewModels = dailyViewModels
         self.weatherHeaderViewModel = weatherHeaderViewModel
-//        self.location = location
     }
     
     func fetchWeather() async {
@@ -39,6 +39,7 @@ final class CityViewModel: ObservableObject {
             hourlyViewModels = weather?.hourly.map { HourlyWeatherViewModel(hourly: $0) } ?? []
             dailyViewModels = weather?.daily.map { DailyDescriptionViewModel(daily: $0) } ?? []
             weatherHeaderViewModel = WeatherHeaderViewModel(city: "Tokyo", country: "Japan", icon: (weather?.current.weather.first)!.icon, condition: (weather?.current.weather.first)!.main, date: "Nov 13, 2022")
+            location = await Location(lat: lat, lon: lon)
             
         } catch {
             print(error)

@@ -30,6 +30,7 @@
 		DBDE8BED2AD6061400D1A56C /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDE8BEC2AD6061400D1A56C /* NetworkRequest.swift */; };
 		DBDE8BEF2AD6067C00D1A56C /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDE8BEE2AD6067C00D1A56C /* WeatherRequest.swift */; };
 		DBDE8BF12AD71FEE00D1A56C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDE8BF02AD71FEE00D1A56C /* LocationManager.swift */; };
+		DBE8C4B12B2A78F900C39138 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = DBE8C4B02B2A78F900C39138 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBE8C4B12B2A78F900C39138 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +190,9 @@
 			dependencies = (
 			);
 			name = WeatherSwiftUI;
+			packageProductDependencies = (
+				DBE8C4B02B2A78F900C39138 /* SDWebImageSwiftUI */,
+			);
 			productName = WeatherSwiftUI;
 			productReference = DBDE8BD62AD5ADDB00D1A56C /* WeatherSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -216,6 +221,9 @@
 				Base,
 			);
 			mainGroup = DBDE8BCD2AD5ADDB00D1A56C;
+			packageReferences = (
+				DBE8C4AF2B2A78F900C39138 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = DBDE8BD72AD5ADDB00D1A56C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -465,6 +473,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DBE8C4AF2B2A78F900C39138 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DBE8C4B02B2A78F900C39138 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBE8C4AF2B2A78F900C39138 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DBDE8BCE2AD5ADDB00D1A56C /* Project object */;
 }

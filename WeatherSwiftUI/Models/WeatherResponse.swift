@@ -199,7 +199,7 @@ struct Alerts: Codable {
  */
 
 struct Current: Decodable {
-    let dt: Int
+    let dt: Date
     let sunrise: Int
     let sunset: Int
     let temp: Double
@@ -236,7 +236,7 @@ struct Current: Decodable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        dt = try values.decode(Int.self, forKey: .dt)
+        dt = try values.decode(Date.self, forKey: .dt)
         sunrise = try values.decode(Int.self, forKey: .sunrise)
         sunset = try values.decode(Int.self, forKey: .sunset)
         temp = try values.decode(Double.self, forKey: .temp)
@@ -299,7 +299,7 @@ struct Minutely: Decodable {
  */
 
 struct Hourly: Decodable {
-    let dt : Int
+    let dt : Date
     let temp : Double
     let feelsLike : Double
     let pressure : Int
@@ -334,7 +334,7 @@ struct Hourly: Decodable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        dt = try values.decode(Int.self, forKey: .dt)
+        dt = try values.decode(Date.self, forKey: .dt)
         temp = try values.decode(Double.self, forKey: .temp)
         feelsLike = try values.decode(Double.self, forKey: .feelsLike)
         pressure = try values.decode(Int.self, forKey: .pressure)

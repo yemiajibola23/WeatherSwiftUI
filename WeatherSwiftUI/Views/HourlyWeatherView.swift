@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import SDWebImage
+import SDWebImageSwiftUI
 
 struct HourlyWeatherView: View {
     @Binding var viewModel: HourlyWeatherViewModel
@@ -13,8 +15,9 @@ struct HourlyWeatherView: View {
     var body: some View {
         VStack {
             Text(viewModel.time)
-            AsyncImage(url: viewModel.icon)
-                .frame(idealWidth: 20, idealHeight: 20)
+            WebImage(url: viewModel.icon)
+                .resizable()
+                .frame(width: 50, height: 50)
             Text(viewModel.temperature)
         }
     }
@@ -23,5 +26,6 @@ struct HourlyWeatherView: View {
 struct HourlyWeatherView_Previews: PreviewProvider {
     static var previews: some View {
         HourlyWeatherView(viewModel: .constant(.mock))
+            .frame(width: 100, height: 100)
     }
 }

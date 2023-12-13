@@ -24,8 +24,19 @@ struct WeatherHeaderView: View {
             Text(location)
                 .padding()
             
-            AsyncImage(url: viewModel.icon)
-                .frame(width: 300, height: 300)
+            AsyncImage(url: viewModel.icon) { phase in
+                switch phase {
+                case .success(let image):
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(maxWidth: 200, maxHeight: 200)
+                default:
+                    EmptyView()
+                }
+                
+            }
+                .frame(width: 200, height: 200)
             
             Text(viewModel.condition)
                 .font(.largeTitle).bold()
